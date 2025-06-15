@@ -1,0 +1,35 @@
+{% extends "base_layout.html" %}
+
+{% block title%}
+    Add Book
+{% endblock %}
+
+{% block body%}
+
+    <form method="POST" action="{% url 'add_book' %}" class='mt-5'>
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <input type='number' placeholder='Enter Book Id' name='id' class='form-control'/>
+    </div>
+    <div class="mb-3">
+        <input type='text' placeholder='Enter Book Name' name='name' class='form-control'/>
+    </div>
+    <div class="mb-3">
+        <input type='number' placeholder='Enter Book Salary' name='salary' class='form-control'/>
+    </div>
+    <div class="mb-3">
+        <label for="avilable" class="form-label">Is the Book Available?</label>
+        <select name="avilable" id="avilable" class="form-control">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input type='text' placeholder='Enter Book Image URL' name='img' class='form-control'/>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Book</button>
+</form>
+
+
+{% endblock%}

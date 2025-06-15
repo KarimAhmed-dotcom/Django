@@ -1,0 +1,24 @@
+{% extends "base_layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block body %}
+    <div class='d-flex flex-column gap-2 h-100 border rounded-3 p-3 align-items-center mt-5'>
+            <div class='img-fluid'>
+                <img src="{{ book.img }}" class="img-fluid" alt="{{ book.name }}" class='rounded-3'>
+            </div>
+            <h4>Book : {{ book.name }}</h4>
+            <h4>Salary : {{ book.salary }}</h4>
+            <div>
+                {% comment %} <a class='btn btn-info' href="{% url '' book.id %}">Edit</a> {% endcomment %}
+                <a class='btn btn-danger' href="{% url 'delete_book' book.id %}">Delete</a>
+            </div>
+            {% if book.avilable %}
+                <span class="badge rounded-pill bg-success mt-auto mx-auto">Available</span>
+            {% else %}
+                <span class="badge rounded-pill bg-danger  mt-auto mx-auto">Not Available!</span>
+            {% endif %}
+    </div>
+{% endblock%}
