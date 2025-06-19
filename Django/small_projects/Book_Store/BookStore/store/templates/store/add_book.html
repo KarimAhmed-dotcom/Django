@@ -6,7 +6,7 @@
 
 {% block body%}
 
-    <form method="POST" action="{% url 'add_book' %}" class='mt-5'>
+    <form method="POST" action="{% url 'add_book' %}" class='mt-5 container'>
     {% csrf_token %}
     
     <div class="mb-3">

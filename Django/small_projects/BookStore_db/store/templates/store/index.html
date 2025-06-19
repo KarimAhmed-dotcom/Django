@@ -1,0 +1,35 @@
+{% extends "base_layout.html" %}
+
+{% block title %}
+    Book Store
+{% endblock %}
+
+{% block body %}
+<section class='container'>
+    <div class='d-flex justify-content-center align-items-center'>
+        <h1 class='text-center mt-3 bg-info text-white py-3 rounded-3 w-50'>
+            Welcome To Our Store
+        </h1>
+        <a class='btn btn-dark mx-2' href="{% url 'add_book'%}">Add Book</a>
+    </div>
+    
+    <div class='row mt-4'>
+
+        {% for book in books %}
+            <div class='col col-3 mb-2'>
+                <div class='d-flex flex-column gap-2 h-100 border rounded-3 p-3'>
+                    <h4>Book : {{ book.title }}</h4>
+                    <h4>Description : {{ book.description }}</h4>
+                    <h4>Views : {{ book.views }} 👁️‍🗨️</h4>
+                    <h4>rate : {{ book.rate }} ⭐</h4>
+                    <div>
+                        <a class='btn btn-danger' href="{% url 'delete_book' book.id %}">Delete</a>
+                        <a class='btn btn-warning' href="{% url 'edit_book' book.id %}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>
+{% endblock %}
